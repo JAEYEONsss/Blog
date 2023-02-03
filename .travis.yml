@@ -21,7 +21,7 @@ before_deploy:
   - cp build/libs/*.jar before-deploy/
   - cd before-deploy && zip -r before-deploy *
   - cd ../ && mkdir -p deploy
-  - mv before-deploy/before-deploy.zip deploy/blog-exercise.zip
+  - mv before-deploy/before-deploy.zip deploy/Blog.zip
 
 deploy:
   - provider: s3
@@ -40,10 +40,10 @@ deploy:
     access_key_id: :$AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: yangpring-build
-    key: blog-exercise.zip
+    key: Blog.zip
     bundle_type: zip
-    application: blog-service
-    deployment_group: yangpring-group
+    application: Blog
+    deployment_group: blog-group
     region: ap-northeast-2
     wait-until-deployed: true
 
